@@ -24,7 +24,7 @@ pipeline {
      stage('Deploy Development') {
       environment {
         ENVIRONMENT = 'Sandbox'
-        APP_NAME = 'sampleprojectjenkins-982'
+        APP_NAME = 'sampleprojectjenkins-983'
         ENV='dev'
         KEY='12345'
       }
