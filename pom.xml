@@ -13,7 +13,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-		<app.runtime>4.3.0-20210119</app.runtime>
+		<app.runtime>4.3.0</app.runtime>
 		<mule.maven.plugin.version>3.4.2</mule.maven.plugin.version>
 	</properties>
 
@@ -41,9 +41,10 @@
 					      <region>us-east-2</region>
 					      <workers>1</workers>
 					      <workerType>MICRO</workerType>
-					      <!-- <properties>
-					        <key>value</key>
-					      </properties>-->
+					      <!-- Adding properties to add at runtime -->
+					      <properties>
+					        <env>dev</env>
+					      </properties>
 					      <objectStoreV2>true</objectStoreV2>
                 </cloudHubDeployment>
 				</configuration>
