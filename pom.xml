@@ -39,7 +39,7 @@
 					      <businessGroup>${cloudhub.bg}</businessGroup>
 					      <environment>${cloudhub.environment}</environment>
 					      <region>us-east-2</region>
-					      <workers>${cloudhub.workers}</workers>
+					      <workers>1</workers>
 					      <workerType>MICRO</workerType>
 					      <!-- <properties>
 					        <key>value</key>
