@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<flights>
+  <flight code="CFO">
+    <airline>Spice</airline>
+     <price>10</price>
+     <departDate>2015/10/21</departDate>
+    <destination>Chicago</destination>
+    <plane>Del</plane>
+  </flight>
+  <flight code="CLE">
+    <airline>Jet</airline>
+    <price>10</price>
+    <departDate>2015/10/21</departDate>
+    
+    <destination>Chicago</destination>
+    <plane>Del</plane>
+  </flight>
+  <flight code="DEL">
+    <airline>GoAir</airline> <price>10</price>
+    <departDate>2015/10/21</departDate>
+    <destination>Chicago</destination>
+<plane>Chi</plane>
+  </flight>
+</flights>

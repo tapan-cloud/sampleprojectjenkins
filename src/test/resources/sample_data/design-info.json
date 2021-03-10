@@ -1,0 +1,13 @@
+{
+  "sampleData": {
+    "c62270ad-7673-4a03-9ec2-9e7b39ed5677": {
+      "payload": "sample_data/flights.xml"
+    },
+    "de56e766-0ce0-4da3-9a7d-3ef6d82df9a2": {
+      "payload": "sample_data/java.dwl"
+    },
+    "e1eabd20-a04b-4fc2-91a4-909f21611cbe": {
+      "payload": "sample_data/java_1.dwl"
+    }
+  }
+}
