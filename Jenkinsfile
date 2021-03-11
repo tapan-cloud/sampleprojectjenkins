@@ -24,7 +24,7 @@ pipeline {
      stage('Deploy Development') {
       environment {
         ENVIRONMENT = 'Sandbox'
-        APP_NAME = 'sampleprojectjenkins-985'
+        APP_NAME = 'sampleprojectjenkins-986'
         ENV='uat'
       }
       steps {
