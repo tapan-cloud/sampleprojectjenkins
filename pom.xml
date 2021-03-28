@@ -90,13 +90,13 @@
             <classifier>mule-plugin</classifier>
         </dependency>
     	
-        <!-- Added for JSON logger from Exchange -->   	
+        <!-- Added for JSON logger from Exchange  	-->
     	<dependency>
   <groupId>9762829c-0a02-492a-8287-4116c6fd4a58</groupId>
   <artifactId>json-logger</artifactId>
   <version>1.0.0</version>
   <classifier>mule-plugin</classifier>
-</dependency>
+</dependency> 
     </dependencies>
 
 	<repositories>
@@ -112,7 +112,7 @@
 			<url>https://repository.mulesoft.org/releases/</url>
 			<layout>default</layout>
 		</repository>
-	<repository>
+	 <repository>
             <id>Exchange2</id>
             <name>Exchange2 Repository</name>
             <url>https://maven.anypoint.mulesoft.com/api/v2/organizations/9762829c-0a02-492a-8287-4116c6fd4a58/maven</url>
