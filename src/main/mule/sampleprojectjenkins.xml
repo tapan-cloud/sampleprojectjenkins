@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:email="http://www.mulesoft.org/schema/mule/email"
-	xmlns:cloudhub="http://www.mulesoft.org/schema/mule/cloudhub"
-	xmlns:netsuite="http://www.mulesoft.org/schema/mule/netsuite" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+<mule xmlns:json-logger="http://www.mulesoft.org/schema/mule/json-logger" xmlns:oauth="http://www.mulesoft.org/schema/mule/oauth"
+	xmlns:jms="http://www.mulesoft.org/schema/mule/jms"
+	xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:email="http://www.mulesoft.org/schema/mule/email" xmlns:cloudhub="http://www.mulesoft.org/schema/mule/cloudhub" xmlns:netsuite="http://www.mulesoft.org/schema/mule/netsuite" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
 http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
 http://www.mulesoft.org/schema/mule/netsuite http://www.mulesoft.org/schema/mule/netsuite/current/mule-netsuite.xsd
 http://www.mulesoft.org/schema/mule/cloudhub http://www.mulesoft.org/schema/mule/cloudhub/current/mule-cloudhub.xsd
 http://www.mulesoft.org/schema/mule/email http://www.mulesoft.org/schema/mule/email/current/mule-email.xsd
-http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/jms http://www.mulesoft.org/schema/mule/jms/current/mule-jms.xsd
+http://www.mulesoft.org/schema/mule/oauth http://www.mulesoft.org/schema/mule/oauth/current/mule-oauth.xsd
+http://www.mulesoft.org/schema/mule/json-logger http://www.mulesoft.org/schema/mule/json-logger/current/mule-json-logger.xsd">
 	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="e075f2e8-8a1b-4df0-94e7-42c9d98b860c" >
 		<http:listener-connection host="0.0.0.0" port="8081" />
 	</http:listener-config>
@@ -19,9 +22,9 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
 			</email:properties>
 		</email:smtp-connection>
 	</email:smtp-config>
+	<json-logger:config name="JSON_Logger_Config" doc:name="JSON Logger Config" doc:id="53bd9c09-d282-4b07-98fb-688f4a3a3cbd" environment="dev" applicationName="sampleprojectjenkins" applicationVersion="1.0"/>
 	<flow name="sampleprojectjenkinsFlow" doc:id="76464f41-496c-4fc6-b6aa-bfc8a4cfc8ca" tracking:enable-default-events="true">
 		<http:listener doc:name="Listener" doc:id="5b56b2ab-bdec-4975-ae26-326eecb8404a" config-ref="HTTP_Listener_config" path="/sample"/>
-		<tracking:transaction doc:name="Set Transaction Id" doc:id="11a1aac6-28dc-47b5-b3d7-5791461a5ea5" id="#['12345']"/>
 		<logger level="INFO" doc:name="Logger" doc:id="2d61f747-ea93-416a-a102-a55f97faaea7" message="#[attributes]"/>
 		<set-payload value="#[payload]" doc:name="Set Payload" doc:id="c42102ce-9a2d-40c5-a272-dd22a2a80bd4" />
 		<ee:transform doc:name="Transform Message" doc:id="de56e766-0ce0-4da3-9a7d-3ef6d82df9a2" >
@@ -54,7 +57,7 @@ payload map(object,index)->{
 		<logger level="INFO" doc:name="Logger" doc:id="1626b721-95a7-41d1-9189-4c6bce3e98ce" message="#[vars.outVar]" />
 		<logger level="INFO" doc:name="Logger" doc:id="4605da62-a77e-4549-86bc-b2b086fbc77b" message="#[payload]"/>
 		<logger level="INFO" doc:name="Logger" doc:id="c4dd1e3f-c6c1-4bb0-83c8-62734f3b1418" message="#[payload]"/>
-		<email:send doc:name="Copy_of_Send" doc:id="91d40c82-ad58-4f69-a712-841338a00845" config-ref="Email_SMTP" fromAddress="recurly@mulesoft.com" subject="#[X-correlation-id]" toAddresses="#[['tapan.2187@yahoo.com','tapan.shine@gmail.com']]" >
+		<email:send doc:name="Copy_of_Send" doc:id="91d40c82-ad58-4f69-a712-841338a00845" config-ref="Email_SMTP" fromAddress="recurly@mulesoft.com" subject="#[correlationId]" toAddresses="#[['tapan.2187@yahoo.com','tapan.shine@gmail.com']]" >
 			<email:body contentType="text/html" encoding="'UTF-8'" >
 				<email:content ><![CDATA[#[{
 	"type": error.errorType,
@@ -64,6 +67,7 @@ payload map(object,index)->{
 }]]]></email:content>
 			</email:body>
 		</email:send>
+		<json-logger:logger doc:name="Logger" doc:id="456c54b9-f49c-487d-b6fc-47d4acab9211" config-ref="JSON_Logger_Config" message="Start"/>
 		<error-handler>
 			<on-error-propagate enableNotifications="true" logException="true" doc:name="On Error Propagate" doc:id="2159f418-8c38-43d3-9cad-1471c80e78bf" >
 				<email:send doc:name="Send" doc:id="460ef1eb-ad74-48d8-a4e8-496d92599ded" config-ref="Email_SMTP" fromAddress="recurly@mulesoft.com" subject="#[correlationId]" toAddresses="#[['tapan.2187@yahoo.com','tapan.shine@gmail.com']]">
@@ -132,6 +136,9 @@ payload..*flight map(object)->{
 			</ee:message>
 		</ee:transform>
 	</flow>
+	<error-handler name="sampleprojectjenkinsError_Handler" doc:id="b9273df7-c886-4c7e-af0f-fb1cdf80f253" >
+		<on-error-continue enableNotifications="true" logException="true" doc:name="On Error Continue" doc:id="fd032515-4402-40e3-b073-e083f3e72b46" />
+	</error-handler>
 	<flow name="sampleprojectjenkinsFlow1" doc:id="bbd5879a-1cfe-4c74-9da6-90f0cec8e6ad" >
 		<http:listener doc:name="Listener" doc:id="aa6ecfbf-4f07-4132-b9e8-3bdcfc7b4967" config-ref="HTTP_Listener_config" path="/testone"/>
 		<set-variable value='#[[&#10;  {&#10;    "source": "sfdc_name",&#10;    "target": "name",&#10;    "default": "---"&#10;  },&#10;  {&#10;    "source": "sfdc_last_name",&#10;    "target": "lastName",&#10;    "default": "---"&#10;  },&#10;  {&#10;    "source": "sfdc_employee",&#10;    "target": "user",&#10;    "default": true&#10;  }&#10;]]' doc:name="Set Variable" doc:id="72c1f324-f118-4b2e-bd78-b3e83465155c" variableName="mappings"/>

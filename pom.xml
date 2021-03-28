@@ -49,7 +49,13 @@
 						</properties>
 						<objectStoreV2>true</objectStoreV2>
 					</cloudHubDeployment>
-				</configuration>
+				<sharedLibraries>
+                        <sharedLibrary>
+                            <groupId>org.apache.activemq</groupId>
+                            <artifactId>activemq-client</artifactId>
+                        </sharedLibrary>
+                    </sharedLibraries>
+                </configuration>
 			</plugin>
 		</plugins>
 	</build>
@@ -67,19 +73,14 @@
 			<version>1.2.0</version>
 			<classifier>mule-plugin</classifier>
 		</dependency>
-		<dependency>
-			<groupId>com.mulesoft.connectors</groupId>
-			<artifactId>mule-netsuite-connector</artifactId>
-			<version>10.0.4</version>
-			<classifier>mule-plugin</classifier>
-		</dependency>
+		
 		<!-- added to invoke the Oauth back-end service -->
-		<dependency>
+		<!--  <dependency>
 			<groupId>org.mule.modules</groupId>
 			<artifactId>mule-oauth-module</artifactId>
 			<version>1.1.8</version>
 			<classifier>mule-plugin</classifier>
-		</dependency>
+		</dependency>-->
 		<!-- Added to send the Email Notification -->
 		<dependency>
             <groupId>com.mulesoft.connectors</groupId>
@@ -91,6 +92,14 @@
             <groupId>org.mule.connectors</groupId>
             <artifactId>mule-email-connector</artifactId>
             <version>1.3.0</version>
+            <classifier>mule-plugin</classifier>
+        </dependency>
+    	
+        <!-- Added for JSON logger from Exchange -->   	
+    	<dependency>
+            <groupId>9762829c-0a02-492a-8287-4116c6fd4a58</groupId>
+            <artifactId>json-logger</artifactId>
+            <version>5.0.1</version>
             <classifier>mule-plugin</classifier>
         </dependency>
     </dependencies>
@@ -108,6 +117,11 @@
 			<url>https://repository.mulesoft.org/releases/</url>
 			<layout>default</layout>
 		</repository>
+	
+		
+		
+		
+		
 	</repositories>
 	<pluginRepositories>
 		<pluginRepository>
