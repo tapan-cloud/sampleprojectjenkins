@@ -90,7 +90,8 @@
 
 		<!-- Added for JSON logger from Exchange -->
 		<dependency>
-			<groupId>9762829c-0a02-492a-8287-4116c6fd4a58</groupId>
+			<!--  <groupId>9762829c-0a02-492a-8287-4116c6fd4a58</groupId>-->
+			<groupId>fc29fc36-7e7e-4054-bfb3-c8f4a0889b8f</groupId>
 			<artifactId>json-logger</artifactId>
 			<version>1.0.0</version>
 			<classifier>mule-plugin</classifier>
@@ -113,7 +114,9 @@
 		<repository>
 			<id>Exchange2</id>
 			<name>Exchange2 Repository</name>
-			<url>https://maven.anypoint.mulesoft.com/api/v2/organizations/9762829c-0a02-492a-8287-4116c6fd4a58/maven</url>
+			
+			<url>https://maven.anypoint.mulesoft.com/api/v2/organizations/fc29fc36-7e7e-4054-bfb3-c8f4a0889b8f/maven</url>
+			<!--  <url>https://maven.anypoint.mulesoft.com/api/v2/organizations/9762829c-0a02-492a-8287-4116c6fd4a58/maven</url>-->
 			<layout>default</layout>
 		</repository>
 
@@ -134,7 +137,9 @@
 			<id>Exchange2</id>
 			<name>Exchange2 Repository</name>
 			<layout>default</layout>
-			<url>https://maven.anypoint.mulesoft.com/api/v2/organizations/9762829c-0a02-492a-8287-4116c6fd4a58/maven</url>
+			<url>https://maven.anypoint.mulesoft.com/api/v2/organizations/fc29fc36-7e7e-4054-bfb3-c8f4a0889b8f/maven</url>
+			
+			<!-- <url>https://maven.anypoint.mulesoft.com/api/v2/organizations/9762829c-0a02-492a-8287-4116c6fd4a58/maven</url>-->
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
