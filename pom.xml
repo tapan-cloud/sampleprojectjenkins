@@ -116,15 +116,6 @@
 			<url>https://maven.anypoint.mulesoft.com/api/v2/organizations/9762829c-0a02-492a-8287-4116c6fd4a58/maven</url>
 			<layout>default</layout>
 		</repository>
-<repository>
-            <id>central</id>
-            <name>Central Repository</name>
-            <url>https://repo.maven.apache.org/maven2</url>
-            <layout>default</layout>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
 
 
 
@@ -148,18 +139,7 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</pluginRepository>
-		<pluginRepository>
-            <id>central</id>
-            <name>Central Repository</name>
-            <url>https://repo.maven.apache.org/maven2</url>
-            <layout>default</layout>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <releases>
-                <updatePolicy>never</updatePolicy>
-            </releases>
-        </pluginRepository>
+		
 	</pluginRepositories>
 
 </project>
