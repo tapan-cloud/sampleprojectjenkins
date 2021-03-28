@@ -133,6 +133,15 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</pluginRepository>
+		<pluginRepository>
+			<id>Exchange2</id>
+			<name>Exchange2 Repository</name>
+			<layout>default</layout>
+			<url>https://maven.anypoint.mulesoft.com/api/v2/organizations/9762829c-0a02-492a-8287-4116c6fd4a58/maven</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
 	</pluginRepositories>
 
 </project>
