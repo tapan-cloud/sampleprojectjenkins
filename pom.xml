@@ -49,12 +49,7 @@
 						</properties>
 						<objectStoreV2>true</objectStoreV2>
 					</cloudHubDeployment>
-				<sharedLibraries>
-                        <sharedLibrary>
-                            <groupId>org.apache.activemq</groupId>
-                            <artifactId>activemq-client</artifactId>
-                        </sharedLibrary>
-                    </sharedLibraries>
+				
                 </configuration>
 			</plugin>
 		</plugins>
