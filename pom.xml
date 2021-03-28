@@ -92,11 +92,11 @@
     	
         <!-- Added for JSON logger from Exchange -->   	
     	<dependency>
-            <groupId>9762829c-0a02-492a-8287-4116c6fd4a58</groupId>
-            <artifactId>json-logger</artifactId>
-            <version>5.0.1</version>
-            <classifier>mule-plugin</classifier>
-        </dependency>
+  <groupId>9762829c-0a02-492a-8287-4116c6fd4a58</groupId>
+  <artifactId>json-logger</artifactId>
+  <version>1.0.0</version>
+  <classifier>mule-plugin</classifier>
+</dependency>
     </dependencies>
 
 	<repositories>
