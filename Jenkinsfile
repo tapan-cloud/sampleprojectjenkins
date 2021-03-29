@@ -11,13 +11,13 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-           // bat 'mvn -B -U -e -V clean -DskipTests package'
+            bat 'mvn -B -U -e -V clean -DskipTests package'
            
              
-            withMaven(maven: 'M3', mavenSettingsConfig: 'mvn-setting-xml') {
+            //withMaven(maven: 'M3', mavenSettingsConfig: 'mvn-setting-xml') {
         		
-        		 bat 'mvn -B -U -e -V clean -DskipTests package'
-    }
+        		// bat 'mvn -B -U -e -V clean -DskipTests package'
+  //  }
       }
     }
 
